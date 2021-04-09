@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     EditText editText;
-    TextView textView, textView2;
+    TextView textView, textView2, textView3, valueofpounds;
     Button button;
 
     @Override
@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView);
         textView2 = findViewById(R.id.textView2);
+        textView3 = findViewById(R.id.valueofpounds);
+        valueofpounds = findViewById(R.id.valueofpounds);
 
         editText = findViewById(R.id.editTextNumber);
 
@@ -30,7 +32,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                ConvertFromKiloToPound ();
+
             }
         });
+    }
+
+    private void ConvertFromKiloToPound() {
+
+        String valueEnteredinKILO = editText.getText().toString();
+
+        double Kilo = Double.parseDouble(valueEnteredinKILO);
+
+        double pounds = Kilo * 2.205;
+
+        textView3.setText("" + pounds);
+
     }
 }
